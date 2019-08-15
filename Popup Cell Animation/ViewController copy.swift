@@ -46,6 +46,15 @@ class ViewController2: UIViewController, UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "T##String", for: indexPath)
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "placeHolder"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        cell.contentView.addSubview(imageView)
+        view.ActivateConstraint([
+            imageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10),
+            imageView.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 10),
+            imageView.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -10),
+            imageView.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -10)
+            ])
         cell.backgroundColor = .green
         return cell
     }
